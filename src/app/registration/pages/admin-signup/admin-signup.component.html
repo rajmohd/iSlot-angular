@@ -1,0 +1,30 @@
+<app-header>iSlot App</app-header>
+<h1 id="header">Admin Registration Form</h1>
+<form novalidate [FormGroup]='AdminSignup' class="container">
+  <div id="iddiv">
+    <label for="firstname" id="lfname">First Name</label>
+    <input type="text" class="form-control" name="firstname" id="firstname" formControlName="firstName">
+    <i class="glyphicon glyphicon-remove form-control-feedback" *ngIf="idFormGroup.get('firstName').touched && idFormGroup.get('firstName').errors"
+      id="firstError"></i>
+    <i class="glyphicon glyphicon-ok form-control-feedback" id="firstError" *ngIf="idFormGroup.get('firstName').touched && !idFormGroup.get('firstName').errors"></i>
+  </div>
+  <br>
+  <span id="firstNameError" class="alert alert-danger" *ngIf="idFormGroup.get('firstName').touched && idFormGroup.get('firstName').errors">Please enter first name</span>
+  <br>
+  <br>
+  <div id="iddiv">
+    <label for="fullname">Full Name</label>
+    <input type="text" class="form-control" name="fullname" id="fullname">
+    <i class="glyphicon glyphicon-remove form-control-feedback fullwrong"></i>
+    <i class="glyphicon glyphicon-ok form-control-feedback fulltick "></i>
+  </div>
+  <span id="fullNameError" class="spanHide"></span>
+  <br>
+  <br>
+  <label for="joiningdate">Birth Date</label>
+  <input type="date" class="form-control" id="joiningdate">
+  <span id="dateError" class="spanHide"></span>
+  <br>
+  <br>
+    <button type="button" class="btn btn-success" id="submitting" [disabled]="idFormGroup.invalid" (click)="onSubmit()">submit</button>
+</form>
